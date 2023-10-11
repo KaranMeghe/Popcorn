@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Body } from "./Components/layout/Body";
+import Body from "./Components/layout/Body";
 import Navbar from "./Components/layout/Navbar";
 import { tempMovieData } from "./Components/utils/config";
 
