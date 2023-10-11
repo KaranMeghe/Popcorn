@@ -1,0 +1,32 @@
+Q) How do we split ui into components and when should we create new components?
+Ans: Components Size Matters : we can classify components base on his size which means we can place components ox x axis side one side we have small components and other side we have huge components.
+
+Huge size: for example we are creating whole card (Airbnb) hotel card which contains image and other small information about hotel , having way more responsibilties. components are just like js function if function is doing to many diffrent thing we should break it up into multiple functions. same goes with components. if component is large it need to accept too many props to work properly. suppose we have 10 to 15 props that component is way to big and should be split up. so genrally this two problems make very hard to reuse the components , huge component contains a large code which might be complex and hard to understand. 
+
+does that mean that we should do opposite and create many small components ??
+no, that is terrible idea if we do like that the we might end up with 100s and 1000s components in our app.  it will make code base super confusing and hard to navigate  and it will me more to abstracted 
+meaning (in programming it means create something new in order to hide implimentaion details of that thing. ex: we create button but user dosent know how it doing ? that button is doing, because implimentaion details is hidden  behind this abstraction) each component we create is abstraction.
+
+if both small and large component is not good way then what we should do ?
+Genrally we need to find right balance between too specific and too long (brod). 
+
+Q) How to split ui into components?
+Ans: we need logical separation, some components that are reusable , low complexity.
+
+The 4 Criteria for spliting UI into Components:
+
+1) Logical separation : 
+First, when we decide which components we need to impliment certain UI (making restarunt card), its important that this components create logical sepration of the content, or evven layout of the page.
+
+2) Reusability : 
+ We should also strive that some of these components are reusable.
+
+3) Responsibilties/ low complexity: 
+ and ensure that each component have single responsibilty.
+
+4) Persnonal coding style: 
+
+
+
+
+
