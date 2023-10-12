@@ -1,13 +1,5 @@
-import MoviesListBox from "../Movies/MoviesListBox";
-import MoviesWatchedListBox from "../Movies/MoviesWatchedListBox";
-
-const Body = ({ moviesList }) => {
-  return (
-    <main className="main">
-      <MoviesListBox moviesList={moviesList} />
-      <MoviesWatchedListBox />
-    </main>
-  );
+const Body = ({ children }) => {
+  return <main className="main">{children}</main>;
 };
 
 export default Body;
