@@ -6,6 +6,7 @@ import Box from "./Components/Movies/Box";
 import MoviesList from "./Components/Movies/MoviesList";
 import MoviesSummary from "./Components/Movies/MoviesSummary";
 import MovieWatched from "./Components/Movies/MovieWatched";
+import StarRating from "./Components/StarRating";
 
 export default function App() {
   const [movies, setMovies] = useState(tempMovieData);
@@ -13,7 +14,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar moviesList={[movies, setMovies]} />
+      {/* <Navbar moviesList={[movies, setMovies]} />
 
       <Body>
         <Box>
@@ -24,7 +25,8 @@ export default function App() {
           <MoviesSummary summary={[watched, setWatched]} />
           <MovieWatched summary={[watched, setWatched]} />
         </Box>
-      </Body>
+      </Body> */}
+      <StarRating />
     </>
   );
 }
