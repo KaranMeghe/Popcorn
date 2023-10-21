@@ -1,10 +1,10 @@
 const MoviesList = ({ moviesList }) => {
-  const [movies] = moviesList;
+  const [movies, setSelectedId] = moviesList;
 
   return (
     <ul className="list">
       {movies?.map((movie) => (
-        <li key={movie.imdbID}>
+        <li key={movie.imdbID} onClick={() => setSelectedId(movie.imdbID)}>
           <img src={movie.Poster} alt={`${movie.Title} poster`} />
           <h3>{movie.Title}</h3>
           <div>

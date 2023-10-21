@@ -47,3 +47,4 @@ export const tempWatchedData = [
 
 export const API_KEY = "ea3b7324";
 export const MOVIES = `http://www.omdbapi.com/?apikey=ea3b7324&s=`;
+export const MOVIES_DETAILS = `http://www.omdbapi.com/?apikey=ea3b7324&i=`;
