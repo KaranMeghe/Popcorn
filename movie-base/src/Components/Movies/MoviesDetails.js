@@ -6,7 +6,7 @@ import { MOVIES_DETAILS } from "../utils/config";
 
 const MoviesDetails = ({ movieId }) => {
   const [movieDetails, setMovieDetails] = useState(0);
-  //   const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [selectedId, setSelectedId] = movieId;
 
   const {
@@ -24,8 +24,10 @@ const MoviesDetails = ({ movieId }) => {
   console.log(title);
 
   const fetchMovieDetails = async () => {
+    setIsLoading(true);
     const data = await axios.get(MOVIES_DETAILS + selectedId);
     setMovieDetails(data?.data);
+    setIsLoading(false);
 
     console.log(data.data);
   };
@@ -38,7 +40,7 @@ const MoviesDetails = ({ movieId }) => {
 
   return (
     <div className="details">
-      {movieDetails ? (
+      {!isLoading ? (
         <>
           <header>
             <button className="btn-back" onClick={() => setSelectedId(null)}>
