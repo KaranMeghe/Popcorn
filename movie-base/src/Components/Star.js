@@ -1,4 +1,12 @@
-const Star = ({ onHandleRating, full, onHoverIn, onHoverOut, color, size }) => {
+const Star = ({
+  onHandleRating,
+  full,
+  onHoverIn,
+  onHoverOut,
+  color,
+  size,
+  onDisplayUserRating,
+}) => {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,

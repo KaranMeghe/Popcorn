@@ -11,10 +11,15 @@ import MoviesDetails from "./Components/Movies/MoviesDetails";
 
 export default function App() {
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState(tempWatchedData);
+  const [watched, setWatched] = useState([]);
   const [load, setLoad] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
-  console.log(movies);
+  const [rating, setRating] = useState(0);
+
+  const handleMovieWatched = (movie) => {
+    return setWatched((watched) => [...watched, movie]);
+  };
+
   return (
     <>
       <Navbar moviesList={[movies, setMovies, setLoad]} />
@@ -30,11 +35,21 @@ export default function App() {
 
         <Box>
           {selectedId ? (
-            <MoviesDetails movieId={[selectedId, setSelectedId]} />
+            <MoviesDetails
+              movieId={[selectedId, setSelectedId]}
+              onAddWatched={handleMovieWatched}
+              urating={[rating, setRating]}
+            />
           ) : (
             <>
-              <MoviesSummary summary={[watched, setWatched]} />
-              <MovieWatched summary={[watched, setWatched]} />
+              <MoviesSummary
+                summary={[watched, setWatched]}
+                urating={[rating, setRating]}
+              />
+              <MovieWatched
+                summary={[watched, setWatched]}
+                urating={[rating, setRating]}
+              />
             </>
           )}
         </Box>

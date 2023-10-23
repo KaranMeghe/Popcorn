@@ -16,9 +16,11 @@ const StarRating = ({
   color = "#fcc419",
   size = 48,
   messages = [],
+  urating,
 }) => {
-  const [rating, setRating] = useState(0);
+  // const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
+  const [rating, setRating] = urating;
 
   const textStyle = {
     lineHeight: "1",
@@ -40,6 +42,7 @@ const StarRating = ({
               onHoverOut={() => setTempRating(0)}
               color={color}
               size={size}
+              urating={urating}
             />
           );
         })}
