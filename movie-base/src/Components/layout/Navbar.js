@@ -20,7 +20,10 @@ const Navbar = ({ moviesList }) => {
   ]);
 
   useEffect(() => {
-    stableFetchMovies();
+    const timer = setTimeout(() => stableFetchMovies(), 200);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [stableFetchMovies]);
 
   return (
