@@ -1,5 +1,5 @@
-const MovieWatched = ({ summary }) => {
-  const [watched, setWatched] = summary;
+const MovieWatched = ({ summary, handleDeleteWatch }) => {
+  const [watched] = summary;
 
   return (
     <>
@@ -22,7 +22,12 @@ const MovieWatched = ({ summary }) => {
                 <span>{movie.runtime} min</span>
               </p>
 
-              <button className="btn-toggle">-</button>
+              <button
+                className="btn-delete"
+                onClick={() => handleDeleteWatch(movie.imdbID)}
+              >
+                X
+              </button>
             </div>
           </li>
         ))}

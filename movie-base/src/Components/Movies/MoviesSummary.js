@@ -1,5 +1,5 @@
 const MoviesSummary = ({ summary }) => {
-  const [watched, setWatched] = summary;
+  const [watched] = summary;
 
   const average = (arr) =>
     arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);

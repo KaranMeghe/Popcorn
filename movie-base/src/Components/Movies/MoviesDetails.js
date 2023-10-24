@@ -4,11 +4,14 @@ import Loading from "../Loading";
 import StarRating from "../StarRating";
 import { MOVIES_DETAILS } from "../utils/config";
 
-const MoviesDetails = ({ movieId, onAddWatched, urating }) => {
+const MoviesDetails = ({ movieId, onAddWatched, urating, watched }) => {
   const [movieDetails, setMovieDetails] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedId, setSelectedId] = movieId;
+
   const [rating] = urating;
+
+  const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
 
   const {
     Title: title,
@@ -22,14 +25,12 @@ const MoviesDetails = ({ movieId, onAddWatched, urating }) => {
     Director: director,
     Genre: genre,
   } = movieDetails;
-  console.log(title);
 
   const fetchMovieDetails = async () => {
     setIsLoading(true);
     const data = await axios.get(MOVIES_DETAILS + selectedId);
     setMovieDetails(data?.data);
     setIsLoading(false);
-    console.log(data.data);
   };
 
   const stableMovieDetails = useCallback(fetchMovieDetails, [selectedId]);
@@ -51,8 +52,6 @@ const MoviesDetails = ({ movieId, onAddWatched, urating }) => {
     onAddWatched(newWatchdMovie);
     setSelectedId(null);
   };
-
-  console.log("rating", rating);
 
   return (
     <div className="details">
@@ -77,10 +76,19 @@ const MoviesDetails = ({ movieId, onAddWatched, urating }) => {
           </header>
           <section>
             <div className="rating">
-              <StarRating maxRating={10} size={24} urating={urating} />
-              <button className="btn-add" onClick={handleAdd}>
-                + Add To List
-              </button>
+              {!isWatched ? (
+                <>
+                  <StarRating maxRating={10} size={24} urating={urating} />
+
+                  {rating > 0 && (
+                    <button className="btn-add" onClick={handleAdd}>
+                      + Add To List
+                    </button>
+                  )}
+                </>
+              ) : (
+                <p>You Already Rate This Movie {rating} ⭐️</p>
+              )}
             </div>
             <p>
               <em>{plot}</em>
